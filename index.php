@@ -14,3 +14,9 @@ $route->POST("/post", function () {
       header("application/json");
                           echo json_encode($data,JSON_PRETTY_PRINT);
 });
+      $route->GET("/post", function () {
+      $data['status']="success";
+      $data['message']="Connection is alive";                    
+      header("application/json");
+      echo json_encode($data,JSON_PRETTY_PRINT);
+});
