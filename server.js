@@ -1,7 +1,6 @@
-var socket = io();
-var el;
-
-socket.on('time', function(timeString) {
-  el = document.getElementById('server-time')
-  el.innerHTML = 'Server time: ' + timeString;
+const io = socketIO(server);
+io.on('connection', (socket) => {
+  console.log('Client connected');
+  socket.on('disconnect', () => console.log('Client disconnected'));
 });
+setInterval(() => io.emit('time', new Date().toTimeString()), 1000);
