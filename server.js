@@ -1,16 +1,12 @@
 'use strict';
 
-const express = require('express');
-const socketIO = require('socket.io');
+var express = require('express'),
+    app = express(),
+    server = require('http').createServer(app),
+    io = require('socket.io').listen(server),
 
-const PORT = process.env.PORT || 3000;
-const INDEX = '/index.php';
+server.listen(process.env.PORT || 3000);
 
-const server = express()
-  .use((req, res) => res.sendFile(INDEX, { root: __dirname }))
-  .listen(PORT, () => console.log(`Listening on ${PORT}`));
-
-const io = socketIO(server);
 
 io.on('connection', (socket) => {
   console.log('Client connected');
