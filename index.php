@@ -7,7 +7,7 @@ $route->GET("/", function () {
       echo "<h4>Merhaba</h4>";
 });
 
-$route->POST("/post", function () {
+$route->GET("/post", function () {
       
       $data['status']="success";
       $data['message']="Connection is alive";                    
