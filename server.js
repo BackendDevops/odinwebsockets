@@ -6,7 +6,7 @@ var express = require('express'),
     io = require('socket.io').listen(server);
 
 server.listen(process.env.PORT || 3000);
-
+console.log(`Listening on ${PORT}`);
 
 io.on('connection', (socket) => {
   console.log('Client connected');
